@@ -9,7 +9,11 @@ const CustomText = ({text}) => {
   const openUrl = useCallback(async word => {
     const supported = await Linking.canOpenURL(word);
     if (supported) {
-      await Linking.openURL(word);
+      try {
+        await Linking.openURL(word);
+      } catch (error) {
+        // todo
+      }
     } else {
       Alert.alert(`Don't know how to open this URL: ${word}`);
     }
