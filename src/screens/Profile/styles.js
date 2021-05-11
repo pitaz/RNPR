@@ -1,4 +1,5 @@
 import {StyleSheet} from 'react-native';
+import {colors} from '../../theme/colors';
 
 export const styles = StyleSheet.create({
   homeWrapper: {
@@ -18,13 +19,13 @@ export const styles = StyleSheet.create({
     height: 100,
     width: 100,
     borderRadius: 75,
-    backgroundColor: '#242038',
+    backgroundColor: colors.DARK_PURPLE,
     marginRight: 10,
     justifyContent: 'center',
     alignItems: 'center',
   },
   avatarText: {
-    color: '#fff',
+    color: colors.WHITE,
   },
   name: {
     padding: 20,

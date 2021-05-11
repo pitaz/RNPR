@@ -1,31 +1,13 @@
-import React, {useCallback} from 'react';
-import {useNavigation} from '@react-navigation/core';
-import {Alert, Linking, Text} from 'react-native';
+import React from 'react';
+import {Text} from 'react-native';
 import {formatText} from '../../utils/formatText';
+import useHandleClick from '../../hooks/useHandleClick';
 
+/**
+ * custom TextView
+ */
 const CustomText = ({text}) => {
-  const navigation = useNavigation();
-
-  const openUrl = useCallback(async word => {
-    const supported = await Linking.canOpenURL(word);
-    if (supported) {
-      try {
-        await Linking.openURL(word);
-      } catch (error) {
-        // todo
-      }
-    } else {
-      Alert.alert(`Don't know how to open this URL: ${word}`);
-    }
-  }, []);
-
-  const handleClick = async (web, word) => {
-    if (web) {
-      await openUrl(word);
-    } else {
-      navigation.navigate('profile');
-    }
-  };
+  const {handleClick} = useHandleClick();
   return <Text>{formatText(text, handleClick)}</Text>;
 };
 

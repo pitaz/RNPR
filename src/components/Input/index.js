@@ -7,7 +7,7 @@ const Input = ({onChangeText, style, children}) => {
   return (
     <View style={{...styles.inputWrapper, ...style}}>
       <TextInput
-        placeholder="Search"
+        placeholder="Type"
         style={styles.input}
         onChangeText={onChangeText}
         placeholderTextColor={colors.GREY}>
